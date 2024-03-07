@@ -6,10 +6,19 @@ import CartContext from '../../context/CartContext'
 import './index.css'
 
 const CartItem = ({cartItemDetails}) => {
-  const {dishId, dishName, dishImage, quantity, dishCurrency, dishPrice} =
-    cartItemDetails
-  const {incrementCartItemQuantity, decrementCartItemQuantity, removeCartItem} =
-    useContext(CartContext)
+  const {
+    dishId,
+    dishName,
+    dishImage,
+    quantity,
+    dishCurrency,
+    dishPrice,
+  } = cartItemDetails
+  const {
+    incrementCartItemQuantity,
+    decrementCartItemQuantity,
+    removeCartItem,
+  } = useContext(CartContext)
 
   const onIncreaseQty = () => incrementCartItemQuantity(dishId)
 
@@ -26,11 +35,7 @@ const CartItem = ({cartItemDetails}) => {
           {dishCurrency} {(quantity * dishPrice).toFixed(2)}
         </p>
         <div className="control-btn-group">
-          <button
-            type="button"
-            className="control-btn"
-            onClick={onDecreaseQty}
-          >
+          <button type="button" className="control-btn" onClick={onDecreaseQty}>
             -
           </button>
           <p className="cart-item-quantity">{quantity}</p>
